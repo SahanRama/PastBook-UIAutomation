@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="REGRESSION" verbose="1" configfailurepolicy="continue">
+    <test name="REGRESSION">
+        <classes>
+            <class name="com.pastbook.qa.test.SignInTest"/>
+            <class name="com.pastbook.qa.test.CreatePassbookTest"/>
+            <class name="com.pastbook.qa.test.HomePageTest"/>
+            <class name="com.pastbook.qa.test.PreviewTest"/>
+        </classes>
+    </test>
+</suite>
