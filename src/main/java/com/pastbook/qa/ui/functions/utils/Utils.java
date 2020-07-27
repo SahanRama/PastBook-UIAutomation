@@ -8,7 +8,7 @@ public class Utils {
     public static String generateEmail(){
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(1000);
-         String email = "Johny"+ randomInt +"@mailinator.com";
+         String email = "Johnie"+ randomInt +"@mailinator.com";
          return email;
     }
 

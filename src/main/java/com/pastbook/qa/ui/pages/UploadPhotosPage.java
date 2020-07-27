@@ -45,7 +45,7 @@ public class UploadPhotosPage extends HomePagePage {
     public void clickUploadFilesButtonInPopup() {
         waitForElement(btnUploadPopUp, 10);
         driver.findElement(btnUploadPopUp).click();
-        waitForSeconds(20);
+        waitForSeconds(30);
     }
 
     public void clickOnTwoImagesToAppearButtonAndContinue() {

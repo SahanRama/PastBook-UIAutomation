@@ -12,6 +12,7 @@ import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
+
 import java.lang.reflect.Method;
 
 
@@ -29,7 +30,7 @@ public class BaseTest {
 
     @BeforeClass
     public void openHomePage() {
-        HomePage.openHomePage();
+        HomePage.openBrowser();
     }
 
 
@@ -43,19 +44,16 @@ public class BaseTest {
         this.softAssert = new SoftAssert();
     }
 
-
     @AfterClass
     public void closeBrowser() {
         HomePage.closeBrowser();
     }
 
 
-    
-
     @BeforeClass(alwaysRun = true)
     public void initiateReport(ITestContext ctx) {
         String testClassName = this.getClass().getName().split("tests.")[0].split("\\.")[this.getClass().getName().split("tests.")[0].split("\\.").length - 1];
-       // htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/test-output" + ctx.getCurrentXmlTest().getName().toUpperCase() + ".html");
+        // htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/test-output" + ctx.getCurrentXmlTest().getName().toUpperCase() + ".html");
         htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/test-output/" + testClassName + ".html");
         htmlReporter.config().setDocumentTitle("PastBook Test Report : " + ctx.getCurrentXmlTest().getName().toUpperCase() + " suite");
         htmlReporter.config().setReportName(ctx.getCurrentXmlTest().getName().toUpperCase() + " Testing");
@@ -68,23 +66,14 @@ public class BaseTest {
 
     @BeforeTest(alwaysRun = true)
     public void beforeTest() {
-        LoggerUtil.log("==================================================================================================");
-        LoggerUtil.log("\n");
         String testClassName = this.getClass().getName().split("tests.")[0].split("\\.")[this.getClass().getName().split("tests.")[0].split("\\.").length - 1];
         LoggerUtil.log("============ Test Class : " + testClassName + " ============");
-        LoggerUtil.log("\n");
-        LoggerUtil.log("==================================================================================================");
     }
 
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod(Method method) {
-        
-        LoggerUtil.log("-------------------------------------------------------------");
-        LoggerUtil.log("\n");
         LoggerUtil.log("----------- Test Method :" + method.getName() + " -----------");
         test = extent.createTest(method.getName());
-        LoggerUtil.log("\n");
-        LoggerUtil.log("-------------------------------------------------------------");
     }
 
     @AfterMethod(alwaysRun = true)

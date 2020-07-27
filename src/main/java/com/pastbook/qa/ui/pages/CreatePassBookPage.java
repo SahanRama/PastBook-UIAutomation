@@ -13,6 +13,7 @@ public class CreatePassBookPage extends BasePage {
         return driver.findElement(lblWelcomeMessage).getText();
     }
     public String getHeaderText(){
+        waitForElement(headerText,30);
         return driver.findElement(headerText).getText();
     }
 
@@ -26,11 +27,11 @@ public class CreatePassBookPage extends BasePage {
     }
 
      public boolean isTitleTextBoxDisplayed(){
-        waitForElement(txtBoxTitleName,15);
+        waitForElement(txtBoxTitleName,30);
         return isElementDisplayed(txtBoxTitleName);
      }
      public boolean isCreateButtonDisplayed(){
-         waitForElement(btnCreate,15);
+         waitForElement(btnCreate,30);
         return isElementDisplayed(btnCreate);
      }
 

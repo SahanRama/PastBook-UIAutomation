@@ -10,7 +10,7 @@ public class HomePage {
     private HomePage() {
     }
 
-    public static void openHomePage() {
+    public static void openBrowser() {
         DriverSetupUtils.setDriverPath();
         BasePage.loadBrowser();
     }

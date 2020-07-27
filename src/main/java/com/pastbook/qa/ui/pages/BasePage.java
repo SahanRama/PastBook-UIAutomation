@@ -27,7 +27,7 @@ public class BasePage {
         for (String winHandle : driver.getWindowHandles()) {
             driver.switchTo().window(winHandle);
         }
-        mainWindow = currentWindow;
+       mainWindow = currentWindow;
     }
 
     public void switchToMainWindow(){
